@@ -1,0 +1,130 @@
+[
+  {
+    "id": 0,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EEC4064CE6CAE6A17B32E3D6F9228B.avif",
+    "title": "BBQ bacon and cheese",
+    "price": 12.99,
+    "category": 1,
+    "rating": 1
+  },
+  {
+    "id": 1,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EE8739E55F5BCE89E33C950E9F9698.avif",
+    "title": "Pepperoni Fresh",
+    "price": 11.99,
+    "category": 1,
+    "rating": 3
+  },
+  {
+    "id": 2,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EEE2400B610809A76066EC21F8C841.avif",
+    "title": "Italian",
+    "price": 12.99,
+    "category": 2,
+    "rating": 8
+  },
+  {
+    "id": 3,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EF0C97D80F98BEB5AE39A433329E78.avif",
+    "title": "Supreme",
+    "price": 16.99,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 4,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EE873ACF835DF68769647F2ECA2F2A.avif",
+    "title": "Pepperoni Classic",
+    "price": 13.99,
+    "category": 1,
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EE874226D636E68C91E09A7F256458.avif",
+    "title": "Chicken Ranch",
+    "price": 16.99,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": 6,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EEC3FF027DFA6ABB2C2582C8686D17.avif",
+    "title": "Meat pizza",
+    "price": 16.99,
+    "category": 1,
+    "rating": 7
+  },
+  {
+    "id": 7,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EE873ED9C21CE2A2D71C0FEE8462CB.avif",
+    "title": "Quattro Formaggi",
+    "price": 13.99,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 8,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EEC3FF8659D55E862827EEEEAB838F.avif",
+    "title": "Arugula & Mushrooms",
+    "price": 14.99,
+    "category": 2,
+    "rating": 9
+  },
+  {
+    "id": 9,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EEC3FE719B6754938723F960B71F07.avif",
+    "title": "Pepperoni Hot",
+    "price": 12.99,
+    "category": 3,
+    "rating": 10
+  },
+  {
+    "id": 10,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EF0C9819A076BC94513F789C2DF4D6.avif",
+    "title": "Carbonara",
+    "price": 17.99,
+    "category": 1,
+    "rating": 11
+  },
+  {
+    "id": 11,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EEC406246D8163915996B91E043453.avif",
+    "title": "Four seasons",
+    "price": 15.99,
+    "category": 1,
+    "rating": 12
+  },
+  {
+    "id": 12,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EE873B1B3E8567874EC62045B17F86.avif",
+    "title": "Hawaiian",
+    "price": 13.99,
+    "category": 1,
+    "rating": 13
+  },
+  {
+    "id": 13,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EE873DD299D6DF9A172DCF9D6F1C5F.avif",
+    "title": "Double Pepperoni",
+    "price": 17.99,
+    "category": 3,
+    "rating": 14
+  },
+  {
+    "id": 14,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EEC402582C10E6908EBFFC185A9CA3.avif",
+    "title": "Pizza Cesar",
+    "price": 16.99,
+    "category": 1,
+    "rating": 15
+  },
+  {
+    "id": 15,
+    "image": "https://media.dodostatic.com/image/r:292x292/11EE873F263F7636BFE49EDBBCCD581D.avif",
+    "title": "Chicken BBQ",
+    "price": 17.99,
+    "category": 1,
+    "rating": 16
+  }
+]
