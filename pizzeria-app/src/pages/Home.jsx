@@ -3,6 +3,7 @@ import PizzaItem from "../components/PizzaItem.tsx";
 import { useState, useEffect } from "react";
 import Sort from "../components/Sort.tsx";
 import axios from "axios";
+import Search from "../components/Search/index.jsx";
 
 const Home = ({searchValue, setSearchValue}) => {
   // sort types
@@ -48,6 +49,11 @@ const Home = ({searchValue, setSearchValue}) => {
           <Sort isDesc={isDesc} setIsDesc={setIsDesc} sortingType={sortingType} onClickSort={setSortingType} sortingTypes={sortingTypes}/>
         </div>
         <h2 class="content__title">Pizzas</h2>
+
+        <div className="content__search_bar">
+          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        </div>
+
         <div class="content__items">
 
           {/* rendering pizzas */}
