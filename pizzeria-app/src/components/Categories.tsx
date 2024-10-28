@@ -1,8 +1,10 @@
 
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { PizzaContext } from '../App'
 
-const Categories = ({activeCategory, onClickCategory}) => {
-
+const Categories = ({onClickCategory}) => {
+  const {activeCategory} = useContext(PizzaContext)
+  
   const categories = ['All', 'Meat', 'Vegeterian', 'Spicy', ]
 
   return (

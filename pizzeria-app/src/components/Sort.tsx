@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { PizzaContext } from '../App';
 
-const Sort = ({ sortingType, onClickSort, sortingTypes, isDesc, setIsDesc}) => {
+const Sort = ({ onClickSort, sortingTypes, isDesc, setIsDesc}) => {
     const [isOpen, setIsOpen] = useState(false);
   
+    const {sortingType} = useContext(PizzaContext);
+    
     return (
       <div className="sort">
         <div className="sort__label">

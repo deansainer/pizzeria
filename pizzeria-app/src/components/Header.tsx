@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import Search from './Search'
+import { PizzaContext } from '../App'
 
 const Header = ({}) => {
+
+  const {searchValue, setSearchValue} = useContext(PizzaContext)
   return (
     <div className="header">
     <div className="container">
@@ -13,6 +17,9 @@ const Header = ({}) => {
         </div>
       </div>
       <div className="header__cart">
+        <div className="content__search_bar">
+            <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        </div>
         <Link to={'/cart'} className="button button--cart">
           <span>$23.98</span>
           <div className="button__delimiter"></div>

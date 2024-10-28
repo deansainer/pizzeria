@@ -1,29 +1,36 @@
 import "./App.css";
 import "./scss/app.scss";
 import Header from "./components/Header.tsx";
-import { useState, useEffect } from "react";
+import { useState, createContext  } from "react";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 
+export const PizzaContext = createContext(); // creating and exporting context
 
 
 function App() {
+  
   const [searchValue, setSearchValue] = useState('')
+  const [sortingType, setSortingType] = useState(0)  
+  const [activeCategory, setActiveCategory] = useState(0)
+  const [isDesc, setIsDesc] = useState(true)
 
   return (
     <body>
-      <div class="wrapper">
-        <Header searchValue={searchValue} setSearchValue={setSearchValue} />
-        <div class="content">
-            <Routes> 
-              <Route path="/" element={<Home searchValue={searchValue} setSearchValue={setSearchValue} />}/>
-              <Route path="/cart" element={<Cart/>}/>
-              <Route path="*" element={<NotFound/>}/>
-            </Routes>
+      <PizzaContext.Provider value={{searchValue, setSearchValue, sortingType, setSortingType, activeCategory, setActiveCategory, isDesc, setIsDesc}}>
+        <div class="wrapper">
+          <Header/>
+            <div class="content">
+              <Routes> 
+                <Route path="/" element={<Home searchValue={searchValue} setSearchValue={setSearchValue} />}/>
+                <Route path="/cart" element={<Cart/>}/>
+                <Route path="*" element={<NotFound/>}/>
+              </Routes>
+            </div>
           </div>
-        </div>
+        </PizzaContext.Provider>
     </body>
   );
 }
