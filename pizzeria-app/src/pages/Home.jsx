@@ -8,7 +8,6 @@ import { PizzaContext } from "../App.js";
 const Home = () => {
   const {
     searchValue,
-    setSearchValue,
     activeCategory,
     setActiveCategory,
     sortingType,

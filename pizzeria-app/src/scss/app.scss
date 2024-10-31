@@ -16,7 +16,20 @@ body {
   max-width: 1400px;
 }
 
+.cart_icon{
+  cursor: pointer;
+  max-width: 30px;
+  max-height: 30px;
+}
 
+
+
+.plus_count_minus{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 15%;
+}
 
 .content {
   padding: 40px 0;
@@ -52,6 +65,7 @@ body {
     }
 
   }
+
 
 
   &__top {
