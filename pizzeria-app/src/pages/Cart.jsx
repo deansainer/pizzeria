@@ -1,6 +1,18 @@
 import React from "react";
+import { useContext } from "react";
+import { PizzaContext } from "../App";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
+  const {cartItems, setCartItems} = useContext(PizzaContext);
+
+  function deleteItem(id){
+    const updatedCartItems = cartItems.filter(item => item.id !== id)
+    setCartItems(updatedCartItems)
+  }
+
+  const cartTotal = cartItems.reduce((total, item) => total + item.price, 0).toFixed(2)
+
   return (
     <div class="container container--cart">
     <div class="cart">
@@ -15,17 +27,19 @@ const Cart = () => {
         </div>
       </div>
       <div class="content__items">
-        {/* cart item */}
+
+      {/* cart items */}
+      {cartItems.map((item) => (
         <div class="cart__item">
           <div class="cart__item-img">
             <img
               class="pizza-block__image"
-              src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+              src={item.image}
               alt="Pizza"
             />
           </div>
           <div class="cart__item-info">
-            <h3>Pepperoni Hot</h3>
+            <h3>{item.title}</h3>
             <p>thin crust, 26 cm</p>
           </div>
 
@@ -40,24 +54,28 @@ const Cart = () => {
           </div>
           
           <div class="cart__item-price">
-            <b>$24.99</b>
+            <b>${item.price}</b>
           </div>
           <div class="cart__item-remove">
-          <img className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1828/1828945.png"/>
+          <img onClick={()=> deleteItem(item.id)} className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1828/1828945.png"/>
           </div>
         </div>
-        {/* end of cart item */}
+      ))}
+      {/* cart items */}
+
 
       </div>
       <div class="cart__bottom">
         <div class="cart__bottom-details">
-          <span>Amount: <b>2</b></span>
-          <span>Cart total: <b>$28.98</b>{" "}</span>
+          <span>Amount: <b>{cartItems.length}</b></span>
+          <span>Cart total: <b>${cartTotal}</b>{" "}</span>
         </div>
         <div class="cart__bottom-buttons">
+          <Link to={'/'}>
           <a href="/" class="button button--outline button--add go-back-btn">
             <span>Get back</span>
           </a>
+          </Link>
           <div class="button pay-btn">
             <span>Pay now</span>
           </div>

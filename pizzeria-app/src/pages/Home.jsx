@@ -16,6 +16,7 @@ const Home = () => {
     setIsDesc,
   } = useContext(PizzaContext);
 
+
   // sort types
   const sortingTypes = ["rating", "price", "title"];
 
@@ -76,6 +77,7 @@ const Home = () => {
               title={pizza.title}
               price={pizza.price}
               image={pizza.image}
+              item={pizza}
             />
           ))}
         </div>

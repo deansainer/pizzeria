@@ -5,7 +5,9 @@ import { PizzaContext } from '../App'
 
 const Header = ({}) => {
 
-  const {searchValue, setSearchValue} = useContext(PizzaContext)
+  const {searchValue, setSearchValue, cartItems} = useContext(PizzaContext)
+  const cartTotal = cartItems.reduce((total, item) => total + item.price, 0).toFixed(2)
+
   return (
     <div className="header">
     <div className="container">
@@ -21,7 +23,7 @@ const Header = ({}) => {
             <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         </div>
         <Link to={'/cart'} className="button button--cart">
-          <span>$23.98</span>
+          <span>${cartTotal}</span>
           <div className="button__delimiter"></div>
           <svg
             width="18"
@@ -52,7 +54,7 @@ const Header = ({}) => {
               stroke-linejoin="round"
             />
           </svg>
-          <span>3</span>
+          <span>{cartItems.length}</span>
         </Link>
       </div>
     </div>
