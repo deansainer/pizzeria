@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const {cartItems, setCartItems} = useContext(PizzaContext);
 
+  function clearCart(){
+    setCartItems([])
+  }
+
   function deleteItem(id){
     const updatedCartItems = cartItems.filter(item => item.id !== id)
     setCartItems(updatedCartItems)
@@ -21,9 +25,9 @@ const Cart = () => {
           <img className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/3514/3514491.png"/>
           Cart
         </h3>
-        <div class="cart__clear">
+        <div class="cart__clear" onClick={() => clearCart()}>
         <img className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/7078/7078826.png"/>
-          <span>Clear items</span>
+          <span>Clear cart</span>
         </div>
       </div>
       <div class="content__items">

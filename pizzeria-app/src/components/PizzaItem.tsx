@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { PizzaContext } from "../App.js";
 
 const PizzaItem = ({ title, price, image, item }) => {
-  const [counter, setCounterer] = useState(1);
 
   const {cartItems, setCartItems} = useContext(PizzaContext);
 
@@ -41,7 +40,7 @@ const PizzaItem = ({ title, price, image, item }) => {
         </div>
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">${price}</div>
-          <div className="button button--outline button--add" onClick={() => addToCart(item)}>  <span>Add</span><i>{counter}</i>
+          <div className="button button--outline button--add" onClick={() => addToCart(item)}>  <span>Add</span>
           </div>
         </div>
       </div>

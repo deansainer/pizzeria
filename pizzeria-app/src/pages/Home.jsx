@@ -4,8 +4,11 @@ import { useState, useEffect, useContext } from "react";
 import Sort from "../components/Sort.tsx";
 import axios from "axios";
 import { PizzaContext } from "../App.js";
+import PizzaSkeleton from '../components/PizzaSkeleton.tsx'
 
 const Home = () => {
+
+  const [isLoading, setIsLoading] = useState(true)
   const {
     searchValue,
     activeCategory,
@@ -16,16 +19,12 @@ const Home = () => {
     setIsDesc,
   } = useContext(PizzaContext);
 
-
+console.log(PizzaSkeleton);
   // sort types
   const sortingTypes = ["rating", "price", "title"];
 
   const [pizzaList, setPizzaList] = useState([]);
 
-  // checking values
-  console.log(
-    `Sort by: ${sortingTypes[sortingType]} \n Category: ${activeCategory} \n Desc: ${isDesc}`
-  );
 
   // getting pizzas from backend
   useEffect(() => {
@@ -43,6 +42,7 @@ const Home = () => {
       }
       const response = pizzas.data;
       setPizzaList(response);
+      setIsLoading(false)
     }
     getPizzas();
   }, [sortingType, activeCategory, isDesc]);
@@ -72,14 +72,15 @@ const Home = () => {
 
         <div class="content__items">
           {/* rendering pizzas */}
-          {filteredPizzas.map((pizza) => (
+           {isLoading  ? Array.from({ length: 4 }, (_, index) => <PizzaSkeleton key={index} />) : filteredPizzas.map((pizza) => (
             <PizzaItem
               title={pizza.title}
               price={pizza.price}
               image={pizza.image}
               item={pizza}
             />
-          ))}
+          ))
+  }
         </div>
       </div>
     </div>
