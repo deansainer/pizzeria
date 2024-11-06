@@ -13,7 +13,8 @@ export const PizzaContext = createContext(); // creating and exporting context
 function App() {
   
   const [cartItems, setCartItems] = useState([])
-
+  const cartTotal = cartItems.reduce((total, item) => total + (item.price*item.quantity), 0).toFixed(2)
+  const totalCartQuantity = cartItems.reduce((totalQuantity, item) => totalQuantity + item.quantity, 0)
   const [searchValue, setSearchValue] = useState('')
   const [sortingType, setSortingType] = useState(0)  
   const [activeCategory, setActiveCategory] = useState(0)
@@ -21,7 +22,13 @@ function App() {
 
   return (
     <body>
-      <PizzaContext.Provider value={{searchValue, setSearchValue, sortingType, setSortingType, activeCategory, setActiveCategory, isDesc, setIsDesc, cartItems, setCartItems}}>
+      <PizzaContext.Provider value={{searchValue, setSearchValue, 
+        sortingType, setSortingType, 
+        activeCategory, setActiveCategory, 
+        isDesc, setIsDesc, cartItems, 
+        setCartItems, totalCartQuantity,
+        cartTotal}}>
+
         <div class="wrapper">
           <Header/>
             <div class="content">

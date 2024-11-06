@@ -92,24 +92,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
   }
+
+  &__icon{
+    max-width: 25px;
+    max-height: 25px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+   }
 
   .content__title {
     display: flex;
     align-items: center;
     font-size: 32px;
 
-    svg {
-      position: relative;
-      top: -2px;
-      width: 30px;
-      height: 30px;
-      margin-right: 10px;
-      path {
-        stroke: black;
-        stroke-width: 1.9;
-      }
-    }
+   
   }
 
   &__clear {

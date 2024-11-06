@@ -4,7 +4,7 @@ import { PizzaContext } from "../App";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const {cartItems, setCartItems} = useContext(PizzaContext);
+  const {cartItems, setCartItems, totalCartQuantity, cartTotal} = useContext(PizzaContext);
 
   function clearCart(){
     setCartItems([])
@@ -15,7 +15,6 @@ const Cart = () => {
     setCartItems(updatedCartItems)
   }
 
-  const cartTotal = cartItems.reduce((total, item) => total + item.price, 0).toFixed(2)
 
   return (
     <div class="container container--cart">
@@ -51,14 +50,14 @@ const Cart = () => {
             <div>
               <img className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/15795/15795911.png"/>
             </div>
-            <div style={{marginBottom: '5px', fontSize: '25px'}}><b>2</b></div>
+            <div style={{marginBottom: '5px', fontSize: '25px'}}><b>{item.quantity}</b></div>
             <div>
               <img className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1828/1828919.png"/>
             </div>
           </div>
           
           <div class="cart__item-price">
-            <b>${item.price}</b>
+            <b>${item.price*item.quantity}</b>
           </div>
           <div class="cart__item-remove">
           <img onClick={()=> deleteItem(item.id)} className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1828/1828945.png"/>
@@ -71,7 +70,7 @@ const Cart = () => {
       </div>
       <div class="cart__bottom">
         <div class="cart__bottom-details">
-          <span>Amount: <b>{cartItems.length}</b></span>
+          <span>Amount: <b>{totalCartQuantity}</b></span>
           <span>Cart total: <b>${cartTotal}</b>{" "}</span>
         </div>
         <div class="cart__bottom-buttons">

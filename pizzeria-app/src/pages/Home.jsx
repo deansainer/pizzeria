@@ -19,7 +19,6 @@ const Home = () => {
     setIsDesc,
   } = useContext(PizzaContext);
 
-console.log(PizzaSkeleton);
   // sort types
   const sortingTypes = ["rating", "price", "title"];
 
@@ -73,12 +72,7 @@ console.log(PizzaSkeleton);
         <div class="content__items">
           {/* rendering pizzas */}
            {isLoading  ? Array.from({ length: 4 }, (_, index) => <PizzaSkeleton key={index} />) : filteredPizzas.map((pizza) => (
-            <PizzaItem
-              title={pizza.title}
-              price={pizza.price}
-              image={pizza.image}
-              item={pizza}
-            />
+            <PizzaItem item={pizza}/>
           ))
   }
         </div>
