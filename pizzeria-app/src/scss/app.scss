@@ -34,11 +34,6 @@ body {
   padding: 40px 0;
   position: relative;
 
-  &__search_bar{
-    top: 100px;
-    position: absolute;
-    right: 800px;
-  }
 
   &__title {
     margin: 35px 0;
@@ -79,8 +74,8 @@ body {
   margin: 0 auto;
 
   &--cart {
-    max-width: 820px;
-    margin: 90px auto;
+    max-width: 1000px;
+    margin: 20px auto;
     .content__title {
       margin: 0;
     }

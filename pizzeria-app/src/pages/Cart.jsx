@@ -15,6 +15,16 @@ const Cart = () => {
     setCartItems(updatedCartItems)
   }
 
+  function plusItemQuantity(id){
+    const updatedCartItems = cartItems.map((item) => item.id === id ? {...item, quantity: item.quantity+=1} : item)
+    setCartItems(updatedCartItems)
+  }
+  
+  function minusItemQuantity(id){
+    const updatedCartItems = cartItems.map((item) => item.id === id ? {...item, quantity: item.quantity-=1} : item).filter(item => item.quantity > 0)
+    setCartItems(updatedCartItems)
+  }
+
 
   return (
     <div class="container container--cart">
@@ -45,14 +55,14 @@ const Cart = () => {
             <h3>{item.title}</h3>
             <p>thin crust, 26 cm</p>
           </div>
-
+        
           <div className="plus_count_minus">
             <div>
-              <img className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/15795/15795911.png"/>
+              <img onClick={() => minusItemQuantity(item.id)} className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/15795/15795911.png"/>
             </div>
             <div style={{marginBottom: '5px', fontSize: '25px'}}><b>{item.quantity}</b></div>
             <div>
-              <img className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1828/1828919.png"/>
+              <img onClick={() => plusItemQuantity(item.id)} className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1828/1828919.png"/>
             </div>
           </div>
           
@@ -60,7 +70,7 @@ const Cart = () => {
             <b>${item.price*item.quantity}</b>
           </div>
           <div class="cart__item-remove">
-          <img onClick={()=> deleteItem(item.id)} className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1828/1828945.png"/>
+          <img onClick={()=> deleteItem(item.id)} className='cart_icon' src="https://cdn-icons-png.flaticon.com/128/1450/1450571.png"/>
           </div>
         </div>
       ))}
