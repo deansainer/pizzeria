@@ -6,6 +6,128 @@ body {
   background-color: rgb(43, 122, 133);
 }
 
+.checkout{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__container{
+    height: 580px;
+    width: 620px;
+    background-color: #f1f1f1;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+
+  &__double_inputs{
+    margin-top: 43px;
+    display: flex;
+    gap: 50px;
+  }
+
+  &__single_input{
+    margin-top: 50px;
+    width: 450px;
+    border: 1px solid rgb(184, 184, 184);
+    height: 34px;
+    text-align: left;
+    border-radius: 6px;
+    padding-left: 10px;
+  }
+
+  &__double_input{
+    width: 200px;
+    border: 1px solid rgb(184, 184, 184);
+    height: 34px;
+    text-align: left;
+    border-radius: 6px;
+    padding-left: 10px;
+  }
+
+  &__order_button{
+    width: 160px;
+    color: white;
+    height: 60px;
+    border-radius: 15px;
+    margin-top: 30px;
+    background-color: rgb(43, 122, 133);
+    border: solid rgb(43, 122, 133)
+  }
+
+  &__time_selector{
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+
+    .option_box{
+      height: 34px;
+      width: 160px;
+      border-radius: 6px;
+      text-align: center;
+      border: 1px solid rgb(184, 184, 184);
+    }
+  }
+
+}
+
+.thank{
+
+  &__span1{
+    font-size: 35px;
+  }
+
+  &__span2{
+    font-size: 25px;
+    padding-left: 5px;
+  }
+
+  &__span3{
+    font-size: 20px;
+    padding-left: 5px;
+  }
+  
+  &__span4{
+    padding-left: 5px;
+    font-size: 15px;
+  }  
+  
+  &__span5{
+    padding-left: 7px;
+    font-size: 12px;
+  }
+
+  &__receipt{
+    width: 400px;
+    height: 100%;
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+
+  &__receipt_list{
+    display: flex;
+    flex-direction: column;
+    padding-top: 8px;
+  }
+
+  &__receipt_item{
+    font-size: 15px;
+    padding-left: 6px;
+  }
+
+  &__container{
+    display: flex;
+    flex-direction: column;
+    height: 580px;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 40px;
+  }
+}
+
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;

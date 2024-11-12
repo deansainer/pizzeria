@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import ThankYou from "./pages/ThankYou";
 
 export const PizzaContext = createContext(); // creating and exporting context
 
@@ -35,6 +37,8 @@ function App() {
               <Routes> 
                 <Route path="/" element={<Home/>}/>
                 <Route path="/cart" element={<Cart/>}/>
+                <Route path="/checkout" element={<Checkout/>}/>
+                <Route path="/thankyou" element={<ThankYou/>}/>
                 <Route path="*" element={<NotFound/>}/>
               </Routes>
             </div>
