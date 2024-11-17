@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { PizzaContext } from '../App'
 
 const ThankYou = () => {
+  const {cartItems} = useContext(PizzaContext)
+
   return (
     <div className='thank'>
         <div className='thank__container'>
@@ -12,11 +15,10 @@ const ThankYou = () => {
 
             <div className='thank__receipt'><span className='thank__span3'>Order Receipt</span>
             <div className='thank__receipt_list'>
-                <span className='thank__receipt_item'>BBQ bacon and cheese / 3x / 26cm / thin</span>
-                <span className='thank__receipt_item'>BBQ bacon and cheese / 3x / 26cm / thin</span>
-                <span className='thank__receipt_item'>BBQ bacon and cheese / 3x / 26cm / thin</span>
-                <span className='thank__receipt_item'>BBQ bacon and cheese / 3x / 26cm / thin</span>
-                <span className='thank__receipt_item'>BBQ bacon and cheese / 3x / 26cm / thin</span>
+                {cartItems.map((item) => (
+                  <span className='thank__receipt_item'>{`${item.title} / ${item.quantity} / 26cm / thin`}</span>
+
+                ))}
             </div>
         </div>
     </div>

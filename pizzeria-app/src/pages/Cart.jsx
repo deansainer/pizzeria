@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const {cartItems, setCartItems, totalCartQuantity, cartTotal} = useContext(PizzaContext);
-
+  
   function clearCart(){
     setCartItems([])
   }
@@ -95,7 +95,7 @@ const Cart = () => {
               <Link to={'/checkout'}><span>Pay now</span></Link>
             </div>
           </Link>
-          
+
         </div>
       </div>
     </div>

@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Checkout = () => {
+  
+  const [checkoutForm, setCheckoutForm] = useState({
+    name: '',
+    surname: '',
+    address: '',
+    addressAdditional: '',
+    city: '',
+    state: '',
+    phone: '',
+    email: '',
+    deliveryTime: ''
+  })
+
+  // delivery time box
+  let currentHour = new Date().getHours();
+  const hours = []
+  for(let i=1; i<=5; i++){
+    hours.push(currentHour + i)
+  }
+
   return (
     <div className='checkout'>
       <div className='checkout__container'>
@@ -24,15 +44,10 @@ const Checkout = () => {
         </div>
 
         <div className='checkout__time_selector'>
-
           <select className='option_box' id="selector">
-            <option value="">Select delivery time</option>
-            <option value="hour">14:00</option>
-            <option value="two">15:00</option>
-            <option value="three">16:00</option>
-            <option value="four">17:00</option>
-            <option value="five">18:00</option>
-            <option value="six">19:00</option>
+            {hours.map((hour) => (
+            <option value="hour">{hour}:00</option>
+            ))}
           </select>
         </div>
 
