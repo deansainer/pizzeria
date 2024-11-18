@@ -28,20 +28,21 @@ const Home = () => {
   // getting pizzas from backend
   useEffect(() => {
     async function getPizzas() {
-      let pizzas;
-      const descState = isDesc === true ? "asc" : "desc";
-      if (activeCategory === 0) {
-        pizzas = await axios.get(
-          `https://6706cc88a0e04071d2284b3e.mockapi.io/api/pizzas?orderBy=${sortingTypes[sortingType]}&order=${descState}`
+      try {
+        setIsLoading(true); // showing a sceleton when not loaded
+        const descState = isDesc === true ? "asc" : "desc";
+        const categoryQuery = activeCategory === 0 ? '' : `&category=${activeCategory}`;
+        
+        const response = await axios.get(
+          `http://localhost:3001/api/pizzas?orderBy=${sortingTypes[sortingType]}&order=${descState}${categoryQuery}`
         );
-      } else {
-        pizzas = await axios.get(
-          `https://6706cc88a0e04071d2284b3e.mockapi.io/api/pizzas?category=${activeCategory}&orderBy=${sortingTypes[sortingType]}&order=${descState}`
-        );
+  
+        setPizzaList(response.data);
+      } catch (err) {
+        console.error('Failed to fetch pizzas:', err);
+      } finally {
+        setIsLoading(false); 
       }
-      const response = pizzas.data;
-      setPizzaList(response);
-      setIsLoading(false)
     }
     getPizzas();
   }, [sortingType, activeCategory, isDesc]);
