@@ -89,12 +89,13 @@ const Cart = () => {
             <span>Get back</span>
           </a>
           </Link>
-
+          
+          {cartItems.length > 0 && 
           <Link to={'/checkout'}>
-            <div class="button pay-btn">
-              <Link to={'/checkout'}><span>Pay now</span></Link>
-            </div>
-          </Link>
+          <div class="button pay-btn">
+            <Link to={'/checkout'}><span>Pay now</span></Link>
+          </div>
+        </Link>}
 
         </div>
       </div>
