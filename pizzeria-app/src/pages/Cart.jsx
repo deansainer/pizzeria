@@ -2,9 +2,11 @@ import React from "react";
 import { useContext } from "react";
 import { PizzaContext } from "../App";
 import { Link } from "react-router-dom";
+import { thicknesses } from "../components/PizzaItem.tsx";
+import { sizes } from "../components/PizzaItem.tsx";
 
 const Cart = () => {
-  const {cartItems, setCartItems, totalCartQuantity, cartTotal} = useContext(PizzaContext);
+  const {cartItems, setCartItems, totalCartQuantity, cartTotal, order} = useContext(PizzaContext);
   
   function clearCart(){
     setCartItems([])
@@ -24,7 +26,6 @@ const Cart = () => {
     const updatedCartItems = cartItems.map((item) => item.id === id ? {...item, quantity: item.quantity-=1} : item).filter(item => item.quantity > 0)
     setCartItems(updatedCartItems)
   }
-
 
   return (
     <div class="container container--cart">
@@ -53,7 +54,7 @@ const Cart = () => {
           </div>
           <div class="cart__item-info">
             <h3>{item.title}</h3>
-            <p>thin crust, 26 cm</p>
+            <p>{thicknesses[item.selectedThickness]} crust, {sizes[item.selectedSize]}</p>
           </div>
         
           <div className="plus_count_minus">

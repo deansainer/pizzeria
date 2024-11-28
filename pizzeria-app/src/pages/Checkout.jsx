@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import { PizzaContext } from "../App";
 
 const Checkout = () => {
-  const { cartItems } = useContext(PizzaContext);
+  const { cartItems, setCartItems, setOrder, order, cartTotal } = useContext(PizzaContext);
+
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const deliveryTime = `${hours}:${minutes}`;
 
   const [checkoutForm, setCheckoutForm] = useState({
     firstName: "",
@@ -16,13 +21,6 @@ const Checkout = () => {
     email: "",
     deliveryTime: "",
   });
-
-  // delivery time box
-  let currentHour = new Date().getHours();
-  const hours = [];
-  for (let i = 1; i <= 5; i++) {
-    hours.push(currentHour + i);
-  }
 
   const filledOutForm = Object.values(checkoutForm).every(
     (formValue) => formValue !== ""
@@ -37,7 +35,7 @@ const Checkout = () => {
   }
 
   function placeOrderSubmit() {
-    const order = {
+    setOrder({
       firstName: checkoutForm.name,
       surname: checkoutForm.surname,
       address: checkoutForm.address,
@@ -46,10 +44,11 @@ const Checkout = () => {
       state: checkoutForm.state,
       phone: checkoutForm.phone,
       email: checkoutForm.email,
-      deliveryTime: checkoutForm.deliveryTime,
-      orderedItems: cartItems
-    }
-    console.log(order);
+      deliveryTime: deliveryTime,
+      orderedItems: cartItems,
+      total: cartTotal
+    });
+    setCartItems([])
   }
 
   return (
@@ -119,31 +118,17 @@ const Checkout = () => {
           ></input>
         </div>
 
-        {/* time selector */}
-        <div className="checkout__time_selector">
-          <select
-            name="deliveryTime"
-            value={checkoutForm.deliveryTime}
-            onChange={inputOnChange}
-            className="option_box"
-            id="selector"
-          >
-            <option value="">Select Delivery Time</option> {/* Placeholder */}
-            {hours.map((hour) => (
-              <option key={hour} value={`${hour}:00`}>{`${hour}:00`}</option>
-            ))}
-          </select>
+        {/* estimated selector */}
+        <div className="checkout__estimated_time">
+          Estimated delivery time: {deliveryTime}
         </div>
 
         {/* place order button */}
-          <Link to={"/thankyou"}>
-            <button
-              onClick={placeOrderSubmit}
-              className="checkout__order_button"
-            >
-              Place Order
-            </button>
-          </Link>
+        <Link to={"/thankyou"}>
+          <button onClick={placeOrderSubmit} className="checkout__order_button">
+            Place Order
+          </button>
+        </Link>
       </div>
     </div>
   );

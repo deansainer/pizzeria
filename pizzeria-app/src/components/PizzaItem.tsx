@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 import { PizzaContext } from "../App.js";
 
+export const sizes = ["26 cm", "30 cm", "40 cm"];
+export const thicknesses = ["thin", "standart"];
+
 const PizzaItem = ({item }) => {
 
   const {cartItems, setCartItems} = useContext(PizzaContext);
@@ -9,10 +12,10 @@ const PizzaItem = ({item }) => {
     const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
     
     if (existingItem) {
-      const updatedCartItems = cartItems.map(cartItem => cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 }: cartItem );
+      const updatedCartItems = cartItems.map(cartItem => cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1, selectedThickness, selectedSize }: cartItem );
       setCartItems(updatedCartItems);
     } else {
-      const itemWithQuantity = { ...item, quantity: 1 };
+      const itemWithQuantity = { ...item, quantity: 1, selectedThickness, selectedSize };
       setCartItems([...cartItems, itemWithQuantity]);
     }
     
@@ -20,10 +23,8 @@ const PizzaItem = ({item }) => {
   }
   
 
-  const sizes = ["26 cm", "30 cm", "40 cm"];
   const [selectedSize, setSelectedSize] = useState(0);
 
-  const thicknesses = ["thin", "standart"];
   const [selectedThickness, setSelectedThickness] = useState(0);
 
   return (

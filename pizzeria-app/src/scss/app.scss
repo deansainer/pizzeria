@@ -28,6 +28,10 @@ body {
     gap: 50px;
   }
 
+  &__estimated_time{
+    margin-top: 35px;
+  }
+
   &__single_input{
     margin-top: 50px;
     width: 450px;
@@ -54,7 +58,8 @@ body {
     border-radius: 15px;
     margin-top: 30px;
     background-color: rgb(43, 122, 133);
-    border: solid rgb(43, 122, 133)
+    border: solid rgb(43, 122, 133);
+    cursor: pointer;
   }
 
   &__time_selector{
@@ -76,7 +81,7 @@ body {
 .thank{
 
   &__span1{
-    font-size: 35px;
+    font-size: 45px;
   }
 
   &__span2{
@@ -100,7 +105,7 @@ body {
   }
 
   &__receipt{
-    width: 400px;
+    width: 600px;
     height: 100%;
     margin-top: 20px;
     border-radius: 15px;
@@ -125,6 +130,9 @@ body {
     padding-left: 100px;
     padding-right: 100px;
     padding-top: 40px;
+    padding-bottom: 40px;
+    height: auto;
+
   }
 }
 
@@ -465,4 +473,22 @@ body {
       font-size: 18px;
     }
   }
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, 
+.table td {
+  text-align: center; /* Вирівнювання по центру */
+  padding: 10px; /* Простір усередині комірки */
+  border: 1px solid #f3f3f3; /* Границі для таблиці */
+}
+
+.table thead th {
+  background-color: #ffffff; /* Світлий фон для заголовків */
+  font-weight: bold;
 }

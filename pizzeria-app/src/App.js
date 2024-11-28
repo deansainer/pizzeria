@@ -9,8 +9,8 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
 
-export const PizzaContext = createContext(); // creating and exporting context
 
+export const PizzaContext = createContext(); // creating and exporting context
 
 function App() {
   
@@ -21,6 +21,7 @@ function App() {
   const [sortingType, setSortingType] = useState(0)  
   const [activeCategory, setActiveCategory] = useState(0)
   const [isDesc, setIsDesc] = useState(true)
+  const [order, setOrder] = useState({})
 
   return (
     <body>
@@ -29,7 +30,7 @@ function App() {
         activeCategory, setActiveCategory, 
         isDesc, setIsDesc, cartItems, 
         setCartItems, totalCartQuantity,
-        cartTotal}}>
+        cartTotal, order, setOrder}}>
 
         <div class="wrapper">
           <Header/>
