@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { PizzaContext } from "../App";
+import axios from "axios";
 
 const Checkout = () => {
   const { cartItems, setCartItems, setOrder, order, cartTotal } = useContext(PizzaContext);
@@ -23,13 +24,7 @@ const Checkout = () => {
   });
 
   const isFormFullFilled = checkoutForm.firstName && checkoutForm.secondName && checkoutForm.address && checkoutForm.city && checkoutForm.state && checkoutForm.phone && checkoutForm.email ? true : false
-  // function isFormFilledOut(){
-  //   if(checkoutForm.firstName && checkoutForm.secondName && checkoutForm.address && checkoutForm.city && checkoutForm.state && checkoutForm.phone && checkoutForm.email){
-  //     return true
-  //   } else{
-  //     return false
-  //   }
-  // }
+
 
   function inputOnChange(event) {
     const { name, value } = event.target;
@@ -39,8 +34,8 @@ const Checkout = () => {
     }));
   }
 
-  function placeOrderSubmit() {
-    setOrder({
+  async function placeOrderSubmit() {
+    const newOrder = {
       firstName: checkoutForm.firstName,
       secondName: checkoutForm.secondName,
       address: checkoutForm.address,
@@ -51,11 +46,18 @@ const Checkout = () => {
       email: checkoutForm.email,
       deliveryTime: deliveryTime,
       orderedItems: cartItems,
-      total: cartTotal
-    });
-    setCartItems([])
+      total: Number(cartTotal),
+      orderId: Math.floor(10000000 + Math.random() * 90000000)
+    };
+    
+    setOrder(newOrder);
+    setCartItems([]);
+  
+    console.log('Your order: ', newOrder);
+
+    // post req to place an order
+    await axios.post('http://localhost:3001/api/newOrder', newOrder);
   }
-console.log(checkoutForm);
 
 
   return (
@@ -132,7 +134,7 @@ console.log(checkoutForm);
           ></input>
         </div>
 
-        {/* estimated selector */}
+        {/* estimated delivery time */}
         <div className="checkout__estimated_time">
           Estimated delivery time: {deliveryTime}
         </div>

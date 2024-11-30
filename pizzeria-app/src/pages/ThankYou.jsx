@@ -1,14 +1,42 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { PizzaContext } from "../App";
 import { thicknesses } from "../components/PizzaItem.tsx";
 import { sizes } from "../components/PizzaItem.tsx";
+import { jsPDF } from "jspdf";
+import html2canvas from 'html2canvas'
+import { useNavigate } from "react-router-dom";  // Імпорт useNavigate
 
-const Test = () => {
+
+const ThankYou = () => {
   const { cartItems, order } = useContext(PizzaContext);
   const date = new Date();
 
+  // navigating to the main page when order is empty
+  const navigate = useNavigate();
 
-  console.log("your order is: ", order);
+  useEffect(() => {
+    if (!order || Object.keys(order).length === 0) {
+      navigate("/");
+    }
+  }, [order, navigate]);
+
+  // receipt downloader
+  function downloadReceipt(){
+    const capture = document.querySelector('.content');
+    html2canvas(capture).then((canvas) => {
+        const imgData = canvas.toDataURL('img/png');
+        const doc = new jsPDF('p', 'mm', 'a4');
+
+        const componentWidth = doc.internal.pageSize.getWidth();
+        const componentHeight = doc.internal.pageSize.getHeight() * 0.35;
+        const topMargin = 25;
+
+        doc.addImage(imgData, 'PNG', 0, topMargin, componentWidth, componentHeight);
+        doc.save(`order#${order.orderId}.pdf`);
+    });
+}
+
+  console.log("your order: ", order);
 
   return (
     
@@ -17,7 +45,7 @@ const Test = () => {
         <div className="card">
         <div className="card-header">
         <span className='thank__span1'>THANKS FOR YOUR ORDER!            <img style={{width: '40px'}} src='https://cdn-icons-png.flaticon.com/128/2420/2420620.png'></img></span><br />
-        <span className='thank__span3'>Your order #0065432 is being prepared. We sent an email on your mail box with receipt</span>
+        <span className='thank__span3'>Your order #{order.orderId} is being prepared. We sent an email on your mail box with receipt</span>
         <br></br>
           <span className='thank__span4'>Date: {date.toDateString()}</span>
           <br></br><span className='thank__span4'>Estimated time: {order.deliveryTime}</span>
@@ -82,6 +110,9 @@ const Test = () => {
             </div>
           </div>
         </div>
+        <div className="download">
+          <button onClick={downloadReceipt} className="download_btn">Download receipt</button>
+        </div>
       </div>
       )}
  
@@ -89,4 +120,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default ThankYou;

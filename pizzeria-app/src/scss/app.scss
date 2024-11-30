@@ -13,6 +13,7 @@ body {
 
   &__container{
     height: 580px;
+    position: relative;
     width: 620px;
     background-color: #f1f1f1;
     border-radius: 22px;
@@ -496,4 +497,21 @@ body {
 .required_text{
   margin-top: 40px;
   color: rgb(209, 95, 95);
+}
+
+
+.download{
+  display: flex;
+  justify-content: flex-end;
+}
+.download_btn{
+  width: 160px;
+  color: white;
+  height: 60px;
+  border-radius: 15px;
+  margin-top: 30px;
+  background-color: rgb(43, 122, 133);
+  border: solid rgb(43, 122, 133);
+  cursor: pointer;
+  
 }
