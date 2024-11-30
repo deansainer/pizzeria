@@ -5,6 +5,7 @@ import Sort from "../components/Sort.tsx";
 import axios from "axios";
 import { PizzaContext } from "../App.js";
 import PizzaSkeleton from '../components/PizzaSkeleton.tsx'
+import Search from "../components/Search/index.jsx";
 
 const Home = () => {
 
@@ -70,12 +71,11 @@ const Home = () => {
         </div>
         <h2 class="content__title">Pizzas</h2>
 
-        <div class="content__items">
           {/* rendering pizzas */}
+        <div class="content__items">
            {isLoading  ? Array.from({ length: 4 }, (_, index) => <PizzaSkeleton key={index} />) : filteredPizzas.map((pizza) => (
             <PizzaItem item={pizza}/>
-          ))
-  }
+          ))}
         </div>
       </div>
     </div>

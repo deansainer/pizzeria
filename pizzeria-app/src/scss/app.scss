@@ -36,20 +36,26 @@ body {
   &__single_input{
     margin-top: 50px;
     width: 450px;
-    border: 1px solid rgb(184, 184, 184);
+    border: 0px;
     height: 34px;
     text-align: left;
     border-radius: 6px;
     padding-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   }
 
   &__double_input{
     width: 200px;
-    border: 1px solid rgb(184, 184, 184);
     height: 34px;
+    border: 0px;
     text-align: left;
     border-radius: 6px;
     padding-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  }
+
+  .required_input{
+    box-shadow: rgba(255, 0, 0, 0.13) 0px 0.0625em 0.0625em, rgba(255, 0, 0, 0.199) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   }
 
   &__order_button{
@@ -514,4 +520,16 @@ body {
   border: solid rgb(43, 122, 133);
   cursor: pointer;
   
+}
+
+.empty_card_block{
+  display: flex;
+  justify-content: center;
+}
+
+.empty_card_img{
+  width: 550px;
+  height: 550px;
+  margin-right: 80px;
+  opacity: 0.2;
 }

@@ -67,27 +67,24 @@ const Checkout = () => {
           <input
             name="firstName"
             onChange={inputOnChange}
-            className="checkout__double_input"
+            className={`checkout__double_input ${checkoutForm.firstName ? '' : 'required_input'}`}
             placeholder="Name"
             type="text"
-            style={{  border: checkoutForm.firstName ? '1px solid rgb(184, 184, 184)' : '1px solid rgb(209, 95, 95)'}}
           ></input>
           <input
             name="secondName"
             onChange={inputOnChange}
-            className="checkout__double_input"
+            className={`checkout__double_input ${checkoutForm.secondName ? '' : 'required_input'}`}
             placeholder="Surname"
             type="text"
-            style={{  border: checkoutForm.secondName ? '1px solid rgb(184, 184, 184)' : '1px solid rgb(209, 95, 95)'}}
           ></input>
         </div>
 
         <input
           name="address"
           onChange={inputOnChange}
-          className="checkout__single_input"
+          className={`checkout__single_input ${checkoutForm.address ? '' : 'required_input'}`}
           placeholder="Street Address"
-          style={{  border: checkoutForm.address ? '1px solid rgb(184, 184, 184)' : '1px solid rgb(209, 95, 95)'}}
         ></input>
         <input
           name="addressAdditional"
@@ -100,18 +97,16 @@ const Checkout = () => {
           <input
             name="city"
             onChange={inputOnChange}
-            className="checkout__double_input"
+            className={`checkout__double_input ${checkoutForm.city ? '' : 'required_input'}`}
             placeholder="City"
             type="text"
-            style={{  border: checkoutForm.city ? '1px solid rgb(184, 184, 184)' : '1px solid rgb(209, 95, 95)'}}
           ></input>
           <input
             name="state"
             onChange={inputOnChange}
-            className="checkout__double_input"
+            className={`checkout__double_input ${checkoutForm.state ? '' : 'required_input'}`}
             placeholder="State / Province"
             type="text"
-            style={{  border: checkoutForm.state ? '1px solid rgb(184, 184, 184)' : '1px solid rgb(209, 95, 95)'}}
           ></input>
         </div>
 
@@ -119,18 +114,16 @@ const Checkout = () => {
           <input
             name="phone"
             onChange={inputOnChange}
-            className="checkout__double_input"
+            className={`checkout__double_input ${checkoutForm.phone ? '' : 'required_input'}`}
             placeholder="(000) 000-000"
             type="text"
-            style={{  border: checkoutForm.phone ? '1px solid rgb(184, 184, 184)' : '1px solid rgb(209, 95, 95)'}}
           ></input>
           <input
             name="email"
             onChange={inputOnChange}
-            className="checkout__double_input"
+            className={`checkout__double_input ${checkoutForm.email ? '' : 'required_input'}`}
             placeholder="email@yahoo.com"
             type="text"
-            style={{  border: checkoutForm.email ? '1px solid rgb(184, 184, 184)' : '1px solid rgb(209, 95, 95)'}}
           ></input>
         </div>
 

@@ -5,22 +5,19 @@ import { PizzaContext } from '../App'
 
 const Header = ({}) => {
 
-  const {searchValue, setSearchValue, totalCartQuantity, cartTotal} = useContext(PizzaContext)
+  const {totalCartQuantity, cartTotal} = useContext(PizzaContext)
 
   return (
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <Link to={'/'}><img width="46" height="46" src="https://cdn-icons-png.flaticon.com/128/6951/6951768.png" alt="Pizza logo" /></Link>
+          <Link to={'/'}><img width="50" height="50" src="https://cdn-icons-png.flaticon.com/128/3063/3063829.png" alt="Pizza logo" /></Link>
           <div>
             <h1>Sedo pizza</h1>
             <p>Best pizza in Ukraine</p>
           </div>
         </div>
         <div className="header__cart">
-          <div className="header__search_bar">
-              <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-          </div>
           </div>
         <Link to={'/cart'} className="button button--cart">
           <span>${cartTotal}</span>

@@ -10,7 +10,7 @@ import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
 
 
-export const PizzaContext = createContext(); // creating and exporting context
+export const PizzaContext = createContext();
 
 function App() {
   
