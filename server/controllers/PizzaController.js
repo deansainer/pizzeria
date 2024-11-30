@@ -17,6 +17,21 @@ class PizzaController {
       res.status(500).json({ error: 'Database query failed' });
     }
   }
+
+  async newOrder(req, res){
+    const {orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItems, total} = req.body;
+    try {
+      const orderedItemsJSON = JSON.stringify(orderedItems);
+      const newOrder = await db.query(`INSERT INTO orders (
+        orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItems, total) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
+        [orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItemsJSON, total])
+        
+      res.json('Order created succesfully')
+    } catch (error) {
+      res.json(error)
+    }
+  }
 }
 
 module.exports = new PizzaController();
