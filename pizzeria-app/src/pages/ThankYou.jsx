@@ -7,8 +7,7 @@ const Test = () => {
   const { cartItems, order } = useContext(PizzaContext);
   const date = new Date();
 
-  // Calculate total price (assuming you have a price for each pizza)
-  const totalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+
   console.log("your order is: ", order);
 
   return (
@@ -18,18 +17,20 @@ const Test = () => {
         <div className="card">
         <div className="card-header">
         <span className='thank__span1'>THANKS FOR YOUR ORDER!            <img style={{width: '40px'}} src='https://cdn-icons-png.flaticon.com/128/2420/2420620.png'></img></span><br />
-          Date: {date.toDateString()}
-          <br></br><span>Estimated time: {order.deliveryTime}</span>
+        <span className='thank__span3'>Your order #0065432 is being prepared. We sent an email on your mail box with receipt</span>
+        <br></br>
+          <span className='thank__span4'>Date: {date.toDateString()}</span>
+          <br></br><span className='thank__span4'>Estimated time: {order.deliveryTime}</span>
         </div>
         <div className="card-body">
           <div className="row mb-4">
             <div className="col-sm-6">
               <br></br>
-            <div style={{}}><strong>Customer:</strong></div>
-              <div>{order.firstName} {order.surname}</div>
-              <div>{order.address}, {order.city}</div>
-              <div>Email: {order.email}</div>
-              <div>Phone: {order.phone}</div>
+            <div className='thank__span3'><strong>Customer:</strong></div>
+              <div className='thank__span4'>{order.firstName} {order.secondName}</div>
+              <div className='thank__span4'>{order.address}, {order.city}</div>
+              <div className='thank__span4'>Email: {order.email}</div>
+              <div className='thank__span4'>Phone: {order.phone}</div>
             </div>
           </div>
 
