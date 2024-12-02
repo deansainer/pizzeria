@@ -1,5 +1,5 @@
 CREATE TABLE Orders (
-    orderId INT NOT NULL PRIMARY KEY,
+    orderId BIGINT NOT NULL PRIMARY KEY,
     firstName VARCHAR(255) NOT NULL,
     secondName VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL,
@@ -10,7 +10,8 @@ CREATE TABLE Orders (
     email VARCHAR(255) NOT NULL,
     deliveryTime VARCHAR(10) NOT NULL,
     orderedItems JSON NOT NULL,
-    total DECIMAL(10, 2) NOT NULL
+    total DECIMAL(10, 2) NOT NULL,
+    isCompleted boolean
 );
 
 

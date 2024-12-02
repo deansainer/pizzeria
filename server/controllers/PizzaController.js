@@ -18,14 +18,25 @@ class PizzaController {
     }
   }
 
+  async getOrders(req, res){
+    try {
+      const orders = await db.query('select * from orders;')
+      res.json(orders.rows)
+    } catch (error) {
+      res.json(error)
+    }
+  }
+
+
   async newOrder(req, res){
+    const isCompleted = false
     const {orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItems, total} = req.body;
     try {
       const orderedItemsJSON = JSON.stringify(orderedItems);
       const newOrder = await db.query(`INSERT INTO orders (
-        orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItems, total) 
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
-        [orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItemsJSON, total])
+        orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItems, total, isCompleted) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`,
+        [orderId, firstName, secondName, address, addressAdditional, city, state, phone, email, deliveryTime, orderedItemsJSON, total, isCompleted])
         
       res.json('Order created succesfully')
     } catch (error) {
