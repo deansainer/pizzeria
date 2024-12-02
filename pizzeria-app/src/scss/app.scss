@@ -533,3 +533,55 @@ body {
   margin-right: 80px;
   opacity: 0.2;
 }
+
+
+
+.orders{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 50px;
+  padding: 22px;
+
+  &__card{
+    height: 300px;
+    width: 300px;
+    border-radius: 12px;
+    margin-left: 16px;
+    text-align: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    &__complete_icon{
+      height: 28px;
+      width: 28px;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+    }
+    
+    .span1{
+      margin-top: 3px;
+      font-size: 18px;
+    }
+
+    .span2{
+      margin-top: 3px;
+      font-size: 17px;
+    }
+
+    .span3{
+      margin-top: 3px;
+      font-size: 16px;
+    }
+
+    .span4{
+      margin-top: 3px;
+      font-size: 15px;
+    }
+  }
+}

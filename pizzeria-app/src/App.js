@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
+import Admin from "./pages/Admin";
 
 
 export const PizzaContext = createContext();
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/checkout" element={<Checkout/>}/>
                 <Route path="/thankyou" element={<ThankYou/>}/>
+                <Route path="/admin" element={<Admin/>}/>
                 <Route path="*" element={<NotFound/>}/>
               </Routes>
             </div>
