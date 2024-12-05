@@ -20,13 +20,32 @@ class PizzaController {
 
   async getOrders(req, res){
     try {
-      const orders = await db.query('select * from orders;')
+      const orders = await db.query('select * from orders where iscompleted=false;')
       res.json(orders.rows)
     } catch (error) {
       res.json(error)
     }
   }
 
+  async getOrder(req, res){
+    const {orderId} = req.params;
+    try {
+      const order = await db.query('select * from orders where orderid=$1', [orderId])
+      res.json(order.rows[0])
+    } catch (error) {
+      res.json(error)
+    }
+  }
+
+  async completeOrder(req, res){
+    const {orderId} = req.params;
+    try {
+      const completedOrder = await db.query('update orders set iscompleted=true where orderid=$1', [orderId])
+      res.json(completedOrder.rows[0])
+    } catch (error) {
+      res.json(error)
+    }
+  }
 
   async newOrder(req, res){
     const isCompleted = false
