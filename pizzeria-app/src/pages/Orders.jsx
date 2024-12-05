@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 
-const Admin = () => {
+const Orders = () => {
     const [orders, setOrders] = useState([])
 
     async function getOrders(){
@@ -13,7 +13,7 @@ const Admin = () => {
     async function completeOrder(orderid){
         try {
             if(orderid){
-                const response = await axios.post(`http://localhost:3001/api/orders/${orderid}/complete`)
+                await axios.post(`http://localhost:3001/api/orders/${orderid}/complete`)
                 getOrders()
             }
         } catch (error) {
@@ -28,9 +28,10 @@ const Admin = () => {
 
   return (
     <div className='orders'>
+        <img className='history_icon' src='https://cdn-icons-png.flaticon.com/128/6503/6503273.png'></img>
             {orders.map((order) => (
                         <div className='orders__card'>
-                            <img onClick={() => completeOrder(order.orderid)} style={{cursor: 'pointer'}} className='orders__card__complete_icon' src='https://i.ibb.co/XFMKvdk/checked.png'></img>
+                            <img onClick={() => completeOrder(order.orderid)} style={{cursor: 'pointer'}} className='orders__card__complete_icon' src='https://i.ibb.co/XFMKvdk/checked.png' alt=''></img>
                             <span className='span1' style={{fontWeight:'bold'}}>#{order.orderid}</span>
                             <span className='span2'>{`${order.firstname} ${order.secondname}`}</span>
                             <span className='span3'>{order.address}</span>
@@ -45,4 +46,4 @@ const Admin = () => {
   )
 }
 
-export default Admin
+export default Orders
