@@ -5,7 +5,6 @@ import Sort from "../components/Sort.tsx";
 import axios from "axios";
 import { PizzaContext } from "../App.js";
 import PizzaSkeleton from '../components/PizzaSkeleton.tsx'
-import Search from "../components/Search/index.jsx";
 
 const Home = () => {
 
