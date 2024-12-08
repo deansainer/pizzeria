@@ -59,7 +59,6 @@ const Checkout = () => {
     await axios.post('http://localhost:3001/api/newOrder', newOrder);
   }
 
-
   return (
     <div className="checkout">
       <div className="checkout__container">

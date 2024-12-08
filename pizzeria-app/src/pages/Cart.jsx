@@ -50,7 +50,6 @@ const Cart = () => {
               <img
                 class="pizza-block__image"
                 src={item.image}
-                alt="Pizza"
               />
             </div>
             <div class="cart__item-info">

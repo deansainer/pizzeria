@@ -539,10 +539,24 @@ body {
   height: 30px;
   cursor: pointer;
   position: absolute;
-  right: 30px;
+  right: 42px;
   top: 20px;
 }
 
+.order_container{
+display: flex;
+justify-content: center;
+
+  &__order{
+    width: 700px;
+    height: 600px;
+    border-radius: 20px;
+    border: 1px solid grey;
+  }
+  span{
+    display: block;
+  }
+}
 .orders{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -591,4 +605,15 @@ body {
       font-size: 15px;
     }
   }
+
+  .pending_or_completed{
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    font-size: 18px;
+    color: #777777;
+    cursor: pointer;
+  }
+
+
 }

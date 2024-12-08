@@ -30,7 +30,7 @@ const PizzaItem = ({item }) => {
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
-        <img className="pizza-block__image" src={item.image} alt="Pizza" />
+        <img className="pizza-block__image" src={item.image} />
         <h4 className="pizza-block__title">{item.title}</h4>
         <div className="pizza-block__selector">
           <ul>

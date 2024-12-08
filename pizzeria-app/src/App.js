@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
 import Orders from "./pages/Orders";
+import Order from "./components/Order.tsx";
 
 
 export const PizzaContext = createContext();
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/checkout" element={<Checkout/>}/>
                 <Route path="/thankyou" element={<ThankYou/>}/>
                 <Route path="/orders" element={<Orders/>}/>
+                <Route path="/orders/:orderId" element={<Order/>}/>
                 <Route path="*" element={<NotFound/>}/>
               </Routes>
             </div>
