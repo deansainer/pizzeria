@@ -19,8 +19,10 @@ class PizzaController {
   }
 
   async getOrders(req, res){
+    const {isCompleted} = req.query;
+    
     try {
-      const orders = await db.query('select * from orders where iscompleted=false;')
+      const orders = await db.query('select * from orders where iscompleted = $1;', [isCompleted])
       res.json(orders.rows)
     } catch (error) {
       res.json(error)
