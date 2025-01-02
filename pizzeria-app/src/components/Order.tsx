@@ -23,7 +23,6 @@ useEffect(() => {
     getOrderData(orderId)
 }, [orderId])
 
-
 return (
   <div className="order_container">
     <div className="order_container__order">
@@ -40,11 +39,10 @@ return (
             <th scope="col">Size</th>
           </tr>
         </thead>
-        <tbody>
-          
-          {order.ordereditems.map((item) => (
+        <tbody>          
+          {order.ordereditems.map((item) => (            
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">{item.id}</th>
               <td>{item.title}</td>
               <td>{item.price}</td>
               <td>{item.quantity}</td>

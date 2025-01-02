@@ -6,6 +6,73 @@ body {
   background-color: rgb(43, 122, 133);
 }
 
+
+.auth_container{
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 500px;
+  margin-top: 45px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.auth_input{
+  width: 250px;
+  height: 35px;
+  border: 0px;
+  margin-top: 5px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.auth_form{
+  display: flex;
+  flex-direction: column;
+}
+
+.username_logout{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+}
+
+.admin_username{
+  color: rgb(110, 110, 110);
+}
+
+.logout{
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+.auth_submit_btn{
+  height: 50px;
+  margin-top: 8px;
+  border-radius: 15px;
+  background-color: rgb(43, 122, 133);
+  border: solid rgb(43, 122, 133);
+  cursor: pointer;
+  color: white;
+}
+
+.auth_buttons{
+  display: flex;
+  margin-top: 10px;
+}
+.auth_type_btn{
+  height: 40px;
+  width: 121px;
+  border: 0px;  
+}
+
 .checkout{
   display: flex;
   align-items: center;
@@ -640,6 +707,5 @@ justify-content: center;
     position: fixed;
     z-index: 9;
   }
-
-
+  
 }
