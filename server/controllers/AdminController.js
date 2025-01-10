@@ -33,17 +33,15 @@ class AdminController{
         const {username, password} = req.body;
         try {
             const admin = await db.query('select * from admins where username=$1', [username])
+            const passwordMatch = await bcrypt.compare(password, admin.rows[0].password)
             if (!admin.rows[0]){
-                res.json({error: 'Admin doesnt exists'})
-            } else {
-                const passwordMatch = await bcrypt.compare(password, admin.rows[0].password)
-                if (passwordMatch) {
-                    const token = jwt.sign({username}, 'secret', {expiresIn: '1hr'})
-                    res.json({username: admin.rows[0].username, token}) 
-                } else {
-                    res.json('Invalid password')
-                }
-            }
+                res.json({error: 'admin doesnt exists'})           
+              } else if(passwordMatch) {
+                const token = jwt.sign({username}, 'secret', {expiresIn: '1hr'})
+                res.json({username: admin.rows[0].username, token}) 
+              } else{
+                res.json('invalid password')
+              }
         } catch (error) {
             res.json(error)
         }

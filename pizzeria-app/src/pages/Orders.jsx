@@ -57,7 +57,8 @@ const Orders = () => {
             <span className='admin_username'> admin: {currentUser}</span>
             <img className='logout' onClick={logOut} src='https://i.ibb.co/DKQ5xTp/logout-1.png'/>
         </div>
-        <span onClick={() => setIsCompleted(!isCompleted)} className='pending_or_completed'>{isCompleted? 'completed orders' : 'pending orders'}</span>
+
+        <span className='pending_or_completed'>{isCompleted? 'completed orders' : 'pending orders'}<img onClick={() => setIsCompleted(!isCompleted)} className='order_arrows' src='https://cdn-icons-png.flaticon.com/128/5436/5436326.png'></img></span>
             {orders.map((order) => (
                         <div className='orders__card' style={{backgroundColor: order.iscompleted ? 'rgb(185, 185, 185)' : 'white'}}>
                             {order.iscompleted === false && <img onClick={() => completeOrder(order.orderid)} style={{cursor: 'pointer'}} className='orders__card__complete_icon' src='https://i.ibb.co/XFMKvdk/checked.png'></img>}
