@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
-import { thicknesses, sizes } from './PizzaItem.tsx'
+import { thicknesses, sizes } from './PizzaItem'
 
 
 const Order = () => {

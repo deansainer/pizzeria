@@ -1,10 +1,10 @@
-import Categories from "../components/Categories.tsx";
-import PizzaItem from "../components/PizzaItem.tsx";
+import Categories from "../components/Categories";
+import PizzaItem from "../components/PizzaItem";
 import { useState, useEffect, useContext } from "react";
-import Sort from "../components/Sort.tsx";
+import Sort from "../components/Sort";
 import axios from "axios";
 import { PizzaContext } from "../App.js";
-import PizzaSkeleton from '../components/PizzaSkeleton.tsx'
+import PizzaSkeleton from '../components/PizzaSkeleton'
 
 const Home = () => {
 

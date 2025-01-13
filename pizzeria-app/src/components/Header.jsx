@@ -13,8 +13,8 @@ const Header = ({}) => {
         <div className="header__logo">
           <Link to={'/'}><img width="50" height="50" src="https://cdn-icons-png.flaticon.com/128/3063/3063829.png" alt="Pizza logo" /></Link>
           <div>
-            <h1>Sedo pizza</h1>
-            <p>Best pizza in Ukraine</p>
+            <h1>Cheesy Bite</h1>
+            <p>Best pizza in Europe</p>
           </div>
         </div>
         <div className="header__cart">

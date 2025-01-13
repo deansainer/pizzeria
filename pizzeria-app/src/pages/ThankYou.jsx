@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { PizzaContext } from "../App";
-import { thicknesses } from "../components/PizzaItem.tsx";
-import { sizes } from "../components/PizzaItem.tsx";
+import { thicknesses } from "../components/PizzaItem";
+import { sizes } from "../components/PizzaItem";
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas'
 import { useNavigate } from "react-router-dom";  // Імпорт useNavigate

@@ -1,6 +1,6 @@
 import "./App.css";
 import "./scss/app.scss";
-import Header from "./components/Header.tsx";
+import Header from "./components/Header";
 import { useState, createContext  } from "react";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -9,7 +9,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
 import Orders from "./pages/Orders";
-import Order from "./components/Order.tsx";
+import Order from "./components/Order";
 import Auth from "./pages/Auth";
 
 

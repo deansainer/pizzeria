@@ -2,8 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import { PizzaContext } from "../App";
 import { Link } from "react-router-dom";
-import { thicknesses } from "../components/PizzaItem.tsx";
-import { sizes } from "../components/PizzaItem.tsx";
+import { thicknesses } from "../components/PizzaItem";
+import { sizes } from "../components/PizzaItem";
 
 const Cart = () => {
   const {cartItems, setCartItems, totalCartQuantity, cartTotal, order} = useContext(PizzaContext);

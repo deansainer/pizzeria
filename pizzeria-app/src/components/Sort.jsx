@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { PizzaContext } from '../App';
-import Search from "../components/Search/index.jsx";
+import Search from "../components/Search/index";
 
 const Sort = ({ onClickSort, sortingTypes, isDesc, setIsDesc}) => {
     const [isOpen, setIsOpen] = useState(false);
